@@ -8,7 +8,6 @@ app.use(cors({
     origin:"https://crudusers123.netlify.app/"
 }))
 
-const PORT=5000
 const db=mysql.createConnection({
     host:process.env.MYSQL_ADDON_HOST,
     user:process.env.MYSQL_ADDON_USER,
@@ -55,6 +54,7 @@ app.get('/getusers',(req,res)=>{
         res.json(data)
     })
 })
+ let PORT=process.env.PORT || 5000
 app.listen(PORT,()=>{
     console.log("app listening at PORT:"+PORT)
 })
