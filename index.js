@@ -21,7 +21,7 @@ db.connect((err)=>{
 app.put('/updateuser/:id',(req,res)=>{
     const id=req.params.id;
     const{name,email,company}=req.body.formData;
-    const q=`update adduser set name=?,email=?,company=? where id=?`;
+    const q=`update addUser set name=?,email=?,company=? where id=?`;
 
     db.query(q,[name,email,company,id],(err,data)=>{
         if(err) res.status(500).json(err);
@@ -31,7 +31,7 @@ app.put('/updateuser/:id',(req,res)=>{
 })
 app.delete('/deleteuser/:id',(req,res)=>{
     const id=req.params.id;
-    const q=`Delete from adduser where id=?`;
+    const q=`Delete from addUser where id=?`;
     db.query(q,[id],(err,data)=>{
         if(err) res.status(500).json(err);
         res.status(200).json(data)
